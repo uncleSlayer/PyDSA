@@ -1,19 +1,29 @@
-nums = [3, 5, 2, 1, 4]
+nums = [1]
+
+def check_avail(arr, n):
+    if n == 0:
+        return True
+    
+    status = False
+    for j in arr:
+        if j == n:
+            status = True
+        
+    return status
 
 def sort_nums():
 
-    for idx, i in enumerate(nums):
+    for i in range(len(nums) + 2):
 
-        if i == nums[i - 1]:
+        status = check_avail(nums, i)
+
+        if status:
             continue
 
         else:
-
-            temp = i
-            nums[idx] = nums[i - 1]
-            nums[i - 1] = temp
-
-    print(nums)
+            return i
 
 
-sort_nums()
+
+
+print(sort_nums())
